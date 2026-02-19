@@ -1,0 +1,28 @@
+#!/bin/bash
+# grype-wrapper: Authenticates to SPCS registry before running grype
+set -euo pipefail
+
+LOCAL_REGISTRY_URL="${ORGNAME,,}-${ACCOUNTNAME,,}.registry-local.snowflakecomputing.com"
+TOKEN=$(cat /snowflake/session/token)
+
+# Create Docker config directory and auth file
+mkdir -p /root/.docker
+cat > /root/.docker/config.json <<EOF
+{
+  "auths": {
+    "${LOCAL_REGISTRY_URL}": {
+      "auth": "$(echo -n "0auth2accesstoken:${TOKEN}" | base64 -w 0)"
+    }
+  }
+}
+EOF
+
+echo "Authenticated to ${LOCAL_REGISTRY_URL}"
+IMAGE_TO_SCAN=$1
+OUTPUT_DIR=$2
+
+RESULT=$(grype "$IMAGE_TO_SCAN" --output json)
+OUTPUT_FILE_NAME=$(echo "$RESULT" | jq -r '.source.target.imageID')
+
+echo "$RESULT" > "$OUTPUT_DIR"/"$OUTPUT_FILE_NAME"
+echo "Scan results of $IMAGE_TO_SCAN written into $OUTPUT_DIR/$OUTPUT_FILE_NAME"
