@@ -288,7 +288,7 @@ snow sql --query "SELECT * FROM scan_results_enriched WHERE IMAGE_TAG ilike '%py
 # Viewing results in Streamlit
 
 [The repo][repo] has a sample Streamlit app that shows the scan results as a
-report that allows browsing results by image/envrionment/team. Screenshot:
+report that allows browsing results by image/environment/team. Screenshot:
 
 ![](./streamlit/streamlit-app.png)
 
