@@ -324,5 +324,5 @@ the admins.
 [3]: https://docs.snowflake.com/en/developer-guide/snowpark-container-services/working-with-registry-repository#repository-privileges
 [SCD]: https://en.wikipedia.org/wiki/Slowly_changing_dimension
 [TCE]: https://docs.snowflake.com/en/user-guide/trust-center/trust-center-extensions#develop-a-trust-center-extension
-[repo]: TODO
+[repo]: https://github.com/sfc-gh-vtimofeenko/spcs-image-scanning
 [grype]: https://github.com/anchore/grype
