@@ -302,7 +302,7 @@ the admins.
 
 1. Use volume snapshots to reuse `grype` database. To use a pattern like this,
    you can create a separate JOB that will pull in the latest database into a
-   block volume and call CREATE SNAPSHOT to produce a reusable volume that is
+   block volume and call [`CREATE SNAPSHOT`][CS] to produce a reusable volume that is
    mounted into the scanning job.
 2. The container image with `grype` scanner is fine for illustration purposes, but
    a production image should use something other than `curl` to install software.
@@ -326,3 +326,4 @@ the admins.
 [TCE]: https://docs.snowflake.com/en/user-guide/trust-center/trust-center-extensions#develop-a-trust-center-extension
 [repo]: https://github.com/sfc-gh-vtimofeenko/spcs-image-scanning
 [grype]: https://github.com/anchore/grype
+[CS]: https://docs.snowflake.com/en/sql-reference/sql/create-snapshot
