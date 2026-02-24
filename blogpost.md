@@ -31,6 +31,10 @@ A similar pipeline may run in a CI/CD environment outside of Snowflake, but
 running it directly in SPCS allows to avoid maintaining credentials in the
 CI/CD environment for both image scanning and results upload.
 
+Schematically:
+
+![](./tldr.png)
+
 Most important code is inline in the article. Object definitions and Streamlit
 code is in the [companion repo][repo].
 
